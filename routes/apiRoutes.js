@@ -2,7 +2,7 @@ var db = require("../models/workouts.js");
 
 module.exports = function (app) {
   app.get("/api/workouts", function (req, res) {
-    db.Workout.findAll({})
+    db.find({})
       .then(function (dbWorkout) {
         res.json(dbWorkout);
       })
@@ -12,7 +12,7 @@ module.exports = function (app) {
   });
 
   app.get("/api/workouts/range", function (req, res) {
-    db.Workout.find({})
+    db.find({})
       .limit(5)
       .then(function (dbWorkout) {
         res.json(dbWorkout);
@@ -36,7 +36,7 @@ module.exports = function (app) {
 
   app.post("/api/workouts", function (req, res) {
     console.log(req.body);
-    db.Workout.create({})
+    db.create({})
       .then(function (dbWorkout) {
         res.json(dbWorkout);
       })
